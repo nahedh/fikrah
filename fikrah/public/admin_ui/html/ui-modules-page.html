@@ -1,0 +1,31 @@
+<div flex class="ui-module-sub">
+    <ul layout layout-align="start stretch" layout-wrap>
+        {% for (var i=0; i < data.length; i++) { var section = data[i]; %}
+        <li flex="100" flex-sm="50" flex-gt-sm="33" flex-gt-lg="25">
+            <div>
+                <h2>
+                    <i class="fa fa-question-circle"></i>
+                    <span>{{ section.label }}</span>
+                </h2>
+                <ul>
+                    {% for (var j=0; j < section.items.length; j++) {
+                        var item = section.items[j];
+                        if(item.shown) { %}
+                    <li>
+                        <a class="md-button" data-type="{{ item.type }}" {% if(item.type==="help") { %}
+							data-youtube-id="{{ item.youtube_id }}"{% } %}
+						    href="#{{ item.route }}">
+                            <span>{{ item.label || __(item.name) }}</span>
+                            {% if(item.type==="doctype") { %}
+                            <em class="open-notification global hide" data-doctype="{{ item.doctype || item.name }}"></em>
+                            {% } %}
+                        </a>
+                    </li>
+                        {% } %}
+                    {% } %}
+                </ul>
+            </div>
+        </li>
+        {% } %}
+    </ul>
+</div>

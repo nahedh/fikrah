@@ -1,0 +1,24 @@
+{% for (var i=0; i < transactions.length; i++) { %}
+<li flex="100" flex-sm="50" flex-gt-sm="33" flex-gt-lg="25">
+    <div class="ui-transaction-wrapper">
+        <h1>{{ transactions[i].label }}</h1>
+        <ul class="ui-transaction-content">
+            {% for (var j=0; j < transactions[i].items.length; j++) {
+                var doctype = transactions[i].items[j]; %}
+            <li layout layout-align="space-between center" data-doctype="{{ doctype }}">
+                <md-button class="ui-open-transaction badge-link"  layout>
+                    <span>{{ __(doctype) }}</span>
+                    <i class="count"></i>
+                </md-button>
+                <em class="open-notification hidden" title="{{ __(" Open {0}", [__(doctype)])}}"></em>
+                {% if (!internal_links[doctype]) { %}
+                    <md-button class="md-icon-button hidden" data-doctype="{{ doctype }}">
+                        <md-icon md-font-icon="octicon octicon-plus"></md-icon>
+                    </md-button>
+                {% } %}
+            </li>
+            {% } %}
+        </ul>
+    </div>
+</li>
+{% } %}

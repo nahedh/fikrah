@@ -1,0 +1,150 @@
+<div flex flex-gt-md="80" layout-fill layout ng-class="{smallPadding: screen.x_small || screen.small}">
+    {% if (ui_main_sidebar) { %}
+    <md-sidenav id="ui-sidebar"
+                md-is-locked-open="screen.large"
+                style="width: 270px;" class="{{navigation_dir}}" md-component-id="ui-sidebar">
+      <div layout-fill class="ui-main-sidebar" ng-class="{uiNonFixed: !screen.large}" layout="column" layout-align="space-between stretch">
+            <div class="ui-sidebar-logo" layout layout-align="center center">
+                <a href="#">
+                    <img src="assets/fikrah/admin_ui/assets/img/white-logo.png" alt="Logo">
+                </a>
+            </div>
+            <md-content flex class="ui-md-content">
+                <ul>
+                    <li>
+                        <a class="md-button" href="">
+                            <i class=""></i>
+                            <span></span>
+                            <em>5</em>
+                        </a>
+                    </li>
+                </ul>
+            </md-content>
+            <div layout layout-align="center stretch" id="ui-sidebar-footer">
+                <div flex>
+                    <md-menu class="ui-dropdown-help" md-position-mode="target-left target">
+                        <md-button aria-label="Help" md-menu-origin  ng-click="$mdMenu.open($event)">
+                            <i  class="fa fa-question-circle"></i>
+                        </md-button>
+                        <md-menu-content class="ui-dropdown-help-menu">
+                            <md-menu-item layout layout-align="space-between center" localizeEvent>
+                                <div flex="80">
+                                    <input flex id="input-help" type="text" placeholder="{{ __(" What do you need help with?")
+                                }}" autofocus>
+                                </div>
+                                <div flex>
+                                    <md-button id="input-help-button" class="md-raised md-primary">{{ __("Go") }}</md-button>
+                                </div>
+                            </md-menu-item>
+                            <md-menu-item id="help-links"></md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <a class="md-button" data-link-type="documentation"
+                                   data-path="/documentation/index" target="_blank" rel="noopener noreferrer">{{
+                                    __("Documentation") }}
+                                </a>
+                            </md-menu-item>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item class="documentation-links"></md-menu-item>
+                            <md-menu-item>
+                                <a href="#" class="md-button" onclick="return frappe.ui.toolbar.show_about();">
+                                    {%= __("About") %}
+                                </a>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+                <div class="ui-separator"></div>
+                <div flex>
+                    <md-button onclick="return frappe.app.logout();">
+                        <i class="fa fa-sign-out"></i>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+    </md-sidenav>
+    {% } %}
+    <div flex layout-fill layout="column">
+        <div>
+            <div class="ui-module-nav">
+                <ul layout layout-align="start center" layout-wrap id="ui-navbar-breadcrumbs" class="ui-navbar-breadcrumbs-all"></ul>
+            </div>
+            <div class="ui-module-header">
+                <div layout layout-align="space-between center">
+                    <div flex class="ui-menu-content" layout layout-align="start stretch">
+                        <span layout layout-align="center center"></span>
+                        <h1></h1>
+                        <div layout layout-align="center center">
+                            <em class="ui-indicator hide"></em>
+                        </div>
+                    </div>
+                    <div class="ui-menu-header ui-page-actions">
+                        <!-- ID and icon buttons -->
+                        <span class="checked-items-status text-ellipsis text-muted small hide hidden-xs hidden-sm"
+                              style="margin-right: 20px;">## items selected</span>
+                        <h6 class="ellipsis sub-heading hide text-muted"></h6>
+
+                        <span class="ui-page-icon-group hide hidden-xs hidden-sm"></span>
+
+                        <!-- buttons -->
+
+
+                        <md-button ng-class="changeToIconButton()" class="hide primary-action md-primary md-raised"></md-button>
+
+
+                        <md-button class="hide secondary-action md-raised"></md-button>
+
+                        <div class="btn-group actions-btn-group hide">
+                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                    data-toggle="dropdown" aria-expanded="false">
+                            <span class="hidden-xs">
+                                {%= __("Actions") %} <span class="caret"></span>
+                            </span>
+                                <span class="visible-xs octicon octicon-check"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                            </ul>
+                        </div>
+                        <md-menu id="ui-page-menu-list">
+                            <md-button md-menu-origin class="md-icon-button" aria-label="Menu" ng-click="$mdMenu.open($event)">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </md-button>
+                            <md-menu-content width="4" class="ui-menu">
+                                <!--<md-menu-item>
+                                    <md-button></md-button>
+                                </md-menu-item>-->
+                            </md-menu-content>
+                        </md-menu>
+
+
+                        <!--<md-menu>
+                            <md-button class="md-icon-button" aria-label="Menu" ng-click="$mdMenu.open($event)">
+                                <i md-menu-origin class="fa fa-ellipsis-v"></i>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item layout layout-align="start center">
+                                    <md-button></md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div flex layout>
+            {% if (!ui_main_sidebar && !single_column) { %}
+            <md-sidenav id="ui-sidebar-secondary"
+                md-is-locked-open="screen.large"
+                style="width: 245px;" class="{{navigation_dir}}" md-component-id="ui-sidebar-{{nav_secondary_id}}">
+                <div layout-fill class="ui-md-content" ng-class="{uiNonFixed: !screen.large}"></div>
+            </md-sidenav>
+            {% } %}
+            <div flex layout="column">
+                <hr id="page-scrolling-shadow">
+                <md-content flex class="ui-page-scroll">
+                    <div id="ui-page"></div>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>

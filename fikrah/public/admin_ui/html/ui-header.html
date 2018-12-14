@@ -1,0 +1,135 @@
+<div layout layout-align="center center" layout-fill >
+    <div flex flex-gt-md="80" layout-fill id="ui-header-content" layout layout-align="start stretch">
+        <div class="ui-small-logo" ng-class="{uiNoLarge: !screen.large}" layout-fill>
+            <a href="#">
+                <img src="assets/fikrah/admin_ui/assets/img/white-logo.png" alt="Logo">
+            </a>
+        </div>
+        <div ng-if="screen.large" class="ui-virtual-sidebar-top" layout-fill></div>
+        <div ng-show="!screen.large" id="ui-responsive-menu" layout layout-align="center center">
+            <md-button class="md-icon-button" ng-click="toggleSidebar()">
+                <md-icon md-font-icon="octicon octicon-three-bars"></md-icon>
+            </md-button>
+        </div>
+
+        <div flex class="ui-header-holder" layout-fill layout layout-align="space-between stretch">
+            <div class="ui-header-search" layout layout-align="start center">
+                <div flex ng-if="screen.x_small">
+                    <md-button class="md-icon-button">
+                        <md-icon md-font-icon="fa fa-search" data-toggle="modal" data-target="#search-modal"></md-icon>
+                    </md-button>
+                </div>
+                <div flex ng-show="!screen.x_small">
+                    <md-icon md-font-icon="fa fa-search"></md-icon>
+                    <div>
+                        <input id="ui-search-input" type="text"
+                               placeholder="{%= __(" Search or type a command") %} {%= __("(Ctrl + G)") %}"
+                        aria-haspopup="true">
+                    </div>
+                </div>
+            </div>
+            <div class="ui-header-tools" layout>
+                <div layout layout-align="center center" class="user-progress hide" title="Your Setup Progress">
+                    <md-button class="md-icon-button dropdown-toggle"
+                               data-toggle="dropdown" layout layout-align="center center">
+                        <div class="progress-chart" style="width: 100%;">
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </md-button>
+                </div>
+                <div layout layout-align="center center">
+                    <md-menu class="notification-menu" md-position-mode="target-left bottom">
+                        <md-button md-menu-origin ng-click="$mdMenu.open($event)" class="md-icon-button"
+                                   aria-label="Notification">
+                            <md-icon md-font-icon="fa fa-bell"></md-icon>
+                            <em class="ui-navbar-new-comments"></em>
+                        </md-button>
+                        <md-menu-content id="ui-dropdown-notification">
+                            <!--<md-menu-item>
+                                <md-button>
+                                    <span>
+                                        <span>dsfsdf</span>
+                                        <em>3</em>
+                                    </span>
+                                </md-button>
+                            </md-menu-item>-->
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+                <div layout layout-align="center center">
+                    <md-menu class="ui-user-menu" md-position-mode="target-left bottom">
+                        <md-button md-menu-origin ng-click="$mdMenu.open($event)" class="md-icon-button"
+                                   aria-label="User">
+                            {{ avatar }}
+                        </md-button>
+                        <md-menu-content id="ui-dropdown-user">
+                            <md-menu-item>
+                                <span>
+                                    {%= frappe.user.full_name() %}
+                                </span>
+                            </md-menu-item>
+                            <md-menu-item class="navbar-set-desktop-icons">
+                                <a class="md-button" href="#modules_setup">
+                                    <span>{%= __("Set Desktop Icons") %}</span>
+                                </a>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <a class="md-button" href="#Form/User/{%= encodeURIComponent(frappe.session.user) %}">
+                                    <span>{%= __("My Settings") %}</span>
+                                </a>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button href="#" onclick="return frappe.ui.toolbar.clear_cache();">
+                                    <span>{%= __("Reload") %}</span>
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <a class="md-button" href="/index" target="_blank" rel="noopener noreferrer">
+                                    <span>{%= __("View Website") %}</span>
+                                </a>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <a class="md-button" href="#background_jobs">
+                                    <span>{%= __("Background Jobs") %}</span>
+                                </a>
+                            </md-menu-item>
+                            <md-menu-item class="divider"></md-menu-item>
+                            <md-menu-item>
+                                <md-button onclick="return frappe.app.logout();">
+                                    <span>{%= __("Logout") %}</span>
+                                </md-button>
+                            </md-menu-item>
+                            <!--<md-menu-item>
+                                <md-button>
+                                    <span>
+                                        <span>dsfsdf</span>
+                                        <em>3</em>
+                                    </span>
+                                </md-button>
+                            </md-menu-item>-->
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="search-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="height: 50px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form role="search" onsubmit="return false;">
+                        <div class="input-group" style="width: 100%">
+                            <input id="modal-search" type="text" class="form-control"
+                                   placeholder="{%= __(" Search or type a command") %}" aria-haspopup="true">
+                            <button type="reset" class="close"><i class="octicon octicon-x"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<div id="ui-form-sidebar" layout-fill layout="column">
+    <div class="ui-sidebar-image">
+        <div class="ui-sidebar-image-wrapper">
+            <div class="sidebar-image"></div>
+            <div class="sidebar-standard-image">
+                <div class="standard-image"></div>
+            </div>
+        </div>
+    </div>
+    <md-content flex layout-fill>
+        <div class="ui-sidebar-section ui-comments">
+            <div class="ui-section-label" layout layout-align="space-between center">
+                <span>{%= __("Comments") %}</span>
+                <em class="n-comments">0</em>
+            </div>
+        </div>
+        <div class="ui-sidebar-section ui-attachments">
+            <div class="ui-section-label" layout layout-align="space-between center">
+                <span>{%= __("Attachments") %}</span>
+                <md-button class="md-icon-button">
+                    <md-icon md-font-icon="octicon octicon-plus"></md-icon>
+                </md-button>
+            </div>
+            <ul class="ui-section-related"></ul>
+        </div>
+
+        <div class="ui-sidebar-section ui-assignto">
+            <div class="ui-section-label" layout layout-align="space-between center">
+                <span>{%= __("Assigned To") %}</span>
+                <md-button class="md-icon-button">
+                    <md-icon md-font-icon="octicon octicon-plus"></md-icon>
+                </md-button>
+            </div>
+            <ul class="ui-section-related"></ul>
+        </div>
+
+        <div class="ui-sidebar-section ui-tags">
+            <div class="ui-section-label" layout layout-align="space-between center">
+                <span>{%= __("Tags") %}</span>
+            </div>
+            <ul class="ui-section-related"></ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="ui-sidebar-section ui-sharewith">
+            <div class="ui-section-label" layout layout-align="space-between center">
+                <span>{%= __("Shared With") %}</span>
+                <md-button class="md-icon-button">
+                    <md-icon md-font-icon="octicon octicon-plus"></md-icon>
+                </md-button>
+            </div>
+            <ul class="ui-section-related"></ul>
+        </div>
+
+        <ul class="ui-sidebar-section list-unstyled sidebar-menu text-muted">
+            <li class="liked-by-parent">
+            <span class="liked-by">
+                <i class="octicon octicon-heart like-action text-extra-muted fa-fw"></i>
+                <span class="likes-count"></span>
+            </span>
+            </li>
+            <li class="modified-by" layout layout-align="start center"></li>
+            <li class="created-by" layout layout-align="start center"></li>
+        </ul>
+
+
+        <ul class="ui-sidebar-section list-unstyled sidebar-menu user-actions hidden"></ul>
+
+
+        <ul class="ui-sidebar-section list-unstyled sidebar-menu sidebar-rating hide">
+            <li class="divider"></li>
+            <li style="position: relative;">
+                <a class="strong badge-hover">
+                    <span>{%= __("Feedback") %}</span>
+                </a>
+            </li>
+            <li class="rating-icons"></li>
+        </ul>
+
+        <ul class="ui-sidebar-section list-unstyled sidebar-menu">
+            <li class="divider"></li>
+            <li class="h6 viewers-label">{%= __("Currently Viewing") %}</li>
+            <li class="form-viewers"></li>
+        </ul>
+
+        {% if(frappe.get_form_sidebar_extension) { %}
+        {{ frappe.get_form_sidebar_extension() }}
+        {% } %}
+    </md-content>
+
+</div>
+
+

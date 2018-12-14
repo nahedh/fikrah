@@ -1,0 +1,37 @@
+{
+	"desk-new-ui.css": [
+		"public/admin_ui/bower_components/angular-material/angular-material.min.css",
+		"public/admin_ui/style.css"
+	],
+	"desk-new-ui.js": [
+		"public/admin_ui/html/ui-header.html",
+		"public/admin_ui/html/ui-page.html",
+		"public/admin_ui/html/ui-form-sidebar.html",
+		"public/admin_ui/html/ui-users-in-sidebar.html",
+		"public/admin_ui/html/ui-list-sidebar.html",
+		"public/admin_ui/html/ui-modules-page.html",
+		"public/admin_ui/html/ui-form-links.html",
+		"public/admin_ui/html/ui-list-sidebar-stat.html",
+		"public/admin_ui/html/ui-form-dashboard.html",
+		"public/admin_ui/main.js"
+	],
+	"desk-new-ui-html.js": [
+		"public/admin_ui/html/ui-header.html",
+		"public/admin_ui/html/ui-page.html",
+		"public/admin_ui/html/ui-form-sidebar.html",
+		"public/admin_ui/html/ui-users-in-sidebar.html",
+		"public/admin_ui/html/ui-list-sidebar.html",
+		"public/admin_ui/html/ui-modules-page.html",
+		"public/admin_ui/html/ui-form-links.html",
+		"public/admin_ui/html/ui-list-sidebar-stat.html",
+		"public/admin_ui/html/ui-form-dashboard.html"
+	],
+	"ng-app-desk-new-ui.js": [
+		"public/admin_ui/bower_components/angular/angular.min.js",
+		"public/admin_ui/bower_components/angular-aria/angular-aria.min.js",
+		"public/admin_ui/bower_components/angular-animate/angular-animate.min.js",
+		"public/admin_ui/bower_components/angular-messages/angular-messages.min.js",
+		"public/admin_ui/bower_components/angular-material/angular-material.min.js",
+		"public/admin_ui/ng-app.js"
+	]
+}

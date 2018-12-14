@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include fikrah *.css
+recursive-include fikrah *.csv
+recursive-include fikrah *.html
+recursive-include fikrah *.ico
+recursive-include fikrah *.js
+recursive-include fikrah *.json
+recursive-include fikrah *.md
+recursive-include fikrah *.png
+recursive-include fikrah *.py
+recursive-include fikrah *.svg
+recursive-include fikrah *.txt
+recursive-exclude fikrah *.pyc
